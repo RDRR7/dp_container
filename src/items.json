@@ -1,0 +1,5 @@
+[
+	{ "code": 1, "amount": 1, "height": 1, "width": 1, "depth": 1 },
+	{ "code": 2, "amount": 2, "height": 2, "width": 2, "depth": 2 },
+	{ "code": 3, "amount": 3, "height": 3, "width": 3, "depth": 3 }
+]
