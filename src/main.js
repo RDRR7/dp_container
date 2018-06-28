@@ -1,6 +1,6 @@
 const loader = require('./loader.js');
 
-const { items, item_duplicates } = loader.get_items();
+const { item_duplicates } = loader.get_items();
 
 const cotainer_size = {
 	heigth: 4,
@@ -36,6 +36,5 @@ function dp_container(total_volume, items) {
 
 console.log(`Container volume: ${container_volume}`);
 console.log(
-	`Max use volume: ${dp_container(container_volume, item_duplicates)}`
+	`Max possible volume: ${dp_container(container_volume, item_duplicates)}`
 );
-console.log(items);

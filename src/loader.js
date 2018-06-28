@@ -3,7 +3,7 @@
 	const item_duplicates = [];
 
 	function calculate_volume() {
-		item_duplicates.forEach(item => {
+		items.forEach(item => {
 			item.volume = item.height * item.width * item.depth;
 		});
 	}
@@ -17,14 +17,15 @@
 					height: item.height,
 					width: item.width,
 					depth: item.depth,
+					volume: item.volume,
 				});
 			}
 		});
 	}
 
 	module.exports.get_items = function() {
-		push_duplicates();
 		calculate_volume();
+		push_duplicates();
 		return { items, item_duplicates };
 	};
 })();
