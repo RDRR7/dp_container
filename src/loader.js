@@ -1,16 +1,17 @@
 (function() {
 	const items = require('./items.json');
+	const item_duplicates = [];
 
 	function calculate_volume() {
-		items.forEach(item => {
+		item_duplicates.forEach(item => {
 			item.volume = item.height * item.width * item.depth;
 		});
 	}
 
 	function push_duplicates() {
 		items.forEach(item => {
-			for (let i = 1; i < item.amount; i++) {
-				items.push({
+			for (let i = 0; i < item.amount; i++) {
+				item_duplicates.push({
 					code: item.code,
 					amount: 1,
 					height: item.height,
@@ -18,13 +19,12 @@
 					depth: item.depth,
 				});
 			}
-			item.amount = 1;
 		});
 	}
 
 	module.exports.get_items = function() {
 		push_duplicates();
 		calculate_volume();
-		return items;
+		return { items, item_duplicates };
 	};
 })();
