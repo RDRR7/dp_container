@@ -2,14 +2,14 @@ const loader = require('./loader.js');
 
 const { item_duplicates } = loader.get_items();
 
-const cotainer_size = {
+const container_size = {
 	heigth: 4,
 	width: 4,
 	depth: 4,
 };
 
 const container_volume =
-	cotainer_size.heigth * cotainer_size.width * cotainer_size.depth;
+	container_size.heigth * container_size.width * container_size.depth;
 
 function dp_container(total_volume, items) {
 	const DP = new Array(items.length + 1);
