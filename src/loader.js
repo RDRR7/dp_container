@@ -1,5 +1,6 @@
 (function() {
 	const items = require('./items.json');
+	const item_duplicates = [];
 
 	function calculate_volume() {
 		items.forEach(item => {
@@ -9,22 +10,22 @@
 
 	function push_duplicates() {
 		items.forEach(item => {
-			for (let i = 1; i < item.amount; i++) {
-				items.push({
+			for (let i = 0; i < item.amount; i++) {
+				item_duplicates.push({
 					code: item.code,
 					amount: 1,
 					height: item.height,
 					width: item.width,
 					depth: item.depth,
+					volume: item.volume,
 				});
 			}
-			item.amount = 1;
 		});
 	}
 
 	module.exports.get_items = function() {
-		push_duplicates();
 		calculate_volume();
-		return items;
+		push_duplicates();
+		return { items, item_duplicates };
 	};
 })();
